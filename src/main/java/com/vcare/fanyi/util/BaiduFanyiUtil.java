@@ -42,8 +42,8 @@ import org.jsoup.select.Elements;
 public class BaiduFanyiUtil {
     private static int timeout = 30 * 1000;
     private static String url = "http://api.fanyi.baidu.com/api/trans/vip/translate";
-    //private static String baiduAppid = "APP_ID";//百度翻译应用id
-    //private static String baiduAppsecret = "APP_SECRET";//百度翻译应用密钥
+    private static String baiduAppid = "APP_ID";//百度翻译应用id
+    private static String baiduAppsecret = "APP_SECRET";//百度翻译应用密钥
 
     public static void readfile(File[] files) throws IOException {
         if (files == null) {// 如果目录为空，直接退出
