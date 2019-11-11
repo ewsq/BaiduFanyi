@@ -42,6 +42,15 @@ public class BaiduFanyiUtil {
     private static String baiduAppsecret = "APP_SECRET";//百度翻译应用密钥
 
     public BaiduFanyiUtil (){
+        //特别注意：百度翻译API标准版是免费的，高级版要收费，并且是先消费后付费的方式，很容易造成超高费用
+        //很恶心的是注册时没有标准版可以选择的地方，默认是高级版（我遇到的情况是这样，结果一下多消费了360多元）
+        //2019年7月2日起，通用翻译API升级为标准版、高级版和尊享版三个版本：
+        //标准版：提供基础文本翻译服务，QPS（每秒并发请求量）=1，个人或企业用户均可申请使用
+        //高级版：提供基础文本翻译服务，同时可申请自定义术语功能，QPS=10，供个人认证用户申请使用
+        //尊享版：提供基础文本翻译服务，同时可申请词典、语音合成、自定义术语功能，QPS=100，供企业认证用户申请使用
+        //收费模式:
+        //标准版：免费使用，不限使用字符量
+        //高级版、尊享版：每月翻译字符数低于200万，享免费服务；超过200万字符，按照49元/百万字符支付当月超出部分字符量费用。
         Properties prop = PropertiesUtil.readOrderedPropertiesFile("config/baidu.properties");
         url=prop.getProperty(url);
         baiduAppid=prop.getProperty(baiduAppid);
