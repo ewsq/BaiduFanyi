@@ -4,11 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.security.MessageDigest;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -44,6 +40,13 @@ public class BaiduFanyiUtil {
     private static String url = "http://api.fanyi.baidu.com/api/trans/vip/translate";
     private static String baiduAppid = "APP_ID";//百度翻译应用id
     private static String baiduAppsecret = "APP_SECRET";//百度翻译应用密钥
+
+    public BaiduFanyiUtil (){
+        Properties prop = PropertiesUtil.readOrderedPropertiesFile("config/baidu.properties");
+        url=prop.getProperty(url);
+        baiduAppid=prop.getProperty(baiduAppid);
+        baiduAppsecret=prop.getProperty(baiduAppsecret);
+    }
 
     public static void readfile(File[] files) throws IOException {
         if (files == null) {// 如果目录为空，直接退出
